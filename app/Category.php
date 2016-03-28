@@ -10,8 +10,8 @@ class Category extends Model
         'name',
     ];
 
-    public function ad()
+    public function ads()
     {
-        return $this->belongsTo('App\Ad');
+        return $this->hasMany('App\Ad');
     }
 }

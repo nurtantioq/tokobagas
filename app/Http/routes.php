@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +24,21 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/create-ads', [
+        'uses' => 'AdController@index',
+        'as' => 'create-ads'
+    ]);
+
+    Route::post('/ajax/get-city-options', [
+        'uses' => 'AdController@getCityOptions',
+        'as' => 'ajax.get-city-options'
+    ]);
+
+    Route::post('/ajax/get-city-input', [
+        'uses' => 'AdController@getCityInput',
+        'as' => 'ajax.get-city-input'
+    ]);
+
 });
 
 Route::group(['middleware' => 'web'], function () {

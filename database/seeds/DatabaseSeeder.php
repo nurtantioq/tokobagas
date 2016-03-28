@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         $tables = [
-            'users', 'categories', 'ads',
+            'users', 'categories', 'ads', 'cities', 'provinces'
         ];
 
         foreach ($tables as $table) {
@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(AdsTableSeeder::class);
+        $this->call(ProvincesTableSeeder::class);
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

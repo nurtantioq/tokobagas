@@ -15,11 +15,11 @@ class Ad extends Model
         'nego'
     ];
 
-    protected $table = 'ads';
+    // protected $table = 'ads';
 
     public function category()
     {
-        return $this->hasMany('App\Category');
+        return $this->belongsTo('App\Category');
     }
 
     public function user()
